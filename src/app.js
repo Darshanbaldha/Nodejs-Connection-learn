@@ -15,6 +15,16 @@ const path = require("path");
 // import hbs module in hbs varible.
 const hbs = require("hbs");
 
+// import register table in hbs varible.
+const Register = require("./models/registers");
+
+// use of json in express.
+const { json } = require("express");
+app.use(express.json());
+// show table value in consol as undeined.
+// in console table's value not show as undifined.
+app.use(express.urlencoded({extended:false}));
+
 // use handlebars is defined to expressjs.
 app.set("view engine","hbs");
 
@@ -38,16 +48,34 @@ hbs.registerPartials(partial_path);
 
 // open index or home page.
 app.get("/",(req,res) => {
-    res.send("Hello!");
+    // res.send("Hello!");
     res.render("index");
 })
 // open login or home page.
 app.get("/login",(req,res) => {
-    res.send("Hello!");
+    // res.send("Hello!");
     res.render("login");
 })
 // open login or home page.
 app.get("/register",(req,res) => {
-    res.send("Hello!");
+    // res.send("Hello!");
     res.render("register");
+})
+// user date catch
+app.post("/register",async (req,res) => {
+    try {
+        // console.log(req.body.name);
+        const usertable = new Register({
+            name : req.body.name,
+            number : req.body.number,
+            email : req.body.email,
+            gender : req.body.gender,
+            age : req.body.age,
+            password : req.body.password
+        })
+        const tablesave = await usertable.save();
+        res.status(201).render("index");
+    } catch (error) {
+        res.status(400).send(error);
+    }
 })

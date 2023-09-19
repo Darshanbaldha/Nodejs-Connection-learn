@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header}}
+    <title>Register Page</title>
+</head>
+
+<body>
+    {{>navbar}}
+
+    <!-- Sign up Form start -->
+    <div class="d-flex flex-column align-items-center mt-5">
+        <form class="px-4 py-3" action="/register" method="post">
+            <!-- enter name start-->
+            <div class="mb-3">
+                <label for="exampleDropdownFormname" class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleDropdownFormname" placeholder="Enter your name"
+                    name="name" maxlength="30" required>
+            </div>
+            <!-- enter name end-->
+            <!-- enter number start-->
+            <div class="mb-3">
+                <label for="exampleDropdownFormnumber" class="form-label">Phone No.</label>
+                <input type="tel" class="form-control" id="exampleDropdownFormnumber" placeholder="Enter your number"
+                    name="number" maxlength="10" required>
+            </div>
+            <!-- enter number end-->
+            <!-- enter email start-->
+            <div class="mb-3">
+                <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com"
+                    name="email" maxlength="30" required>
+            </div>
+            <!-- enter email end-->
+            <!-- enter gender start-->
+            <div class="mb-3">
+                <label for="exampleDropdownFormEmail1" class="form-label">Male</label>
+                <input type="radio" class="form-control" id="exampleDropdownFormEmail1" name="gender" value="male"
+                    checked>
+                <label for="exampleDropdownFormEmail1" class="form-label">Female</label>
+                <input type="radio" class="form-control" id="exampleDropdownFormEmail1" name="gender" value="female">
+            </div>
+            <!-- enter gender end-->
+            <!-- enter age start-->
+            <div class="mb-3">
+                <label for="exampleDropdownFormPassword1" class="form-label">Age</label>
+                <input type="number" class="form-control" id="exampleDropdownFormPassword1" placeholder="age"
+                    name="age" maxlength="4" required>
+            </div>
+            <!-- enter age end-->
+            <!-- enter password start-->
+            <div class="mb-3">
+                <label for="exampleDropdownFormPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password"
+                    name="password" maxlength="255" required>
+            </div>
+            <!-- enter password end-->
+            <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <div class="">
+            <a class="dropdown-item" href="../views/login.hbs">Already User? Log In</a>
+        </div>
+        <!-- Sign up Form end -->
+
+</body>
+
+</html>
